@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dicera — Support</title>
-<meta name="description" content="Support and contact for Dicera, a roguelike dice game in pixel art set in the world of Greek mythology.">
+<title>Dicera — Support &amp; Privacy</title>
+<meta name="description" content="Support, contact and privacy policy for Dicera, a roguelike dice game in pixel art set in the world of Greek mythology.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
@@ -68,7 +68,7 @@
   }
 
   /* ---- Hero ---- */
-  header.hero{text-align:center;padding:70px 0 30px;}
+  header.hero{text-align:center;padding:70px 0 26px;}
 
   .die-stage{
     width:120px;height:120px;margin:0 auto 34px;
@@ -79,7 +79,6 @@
     filter:drop-shadow(0 0 14px rgba(224,169,67,.35));
     animation:roll 6s steps(1,end) infinite;
   }
-  /* each face shows for a beat, then a quick spin between */
   @keyframes roll{
     0%,18%   {transform:rotate(0deg)   scale(1);}
     22%      {transform:rotate(90deg)  scale(.85);}
@@ -91,9 +90,9 @@
   }
   .pip{animation:pips 6s steps(1,end) infinite;}
   @keyframes pips{
-    0%,24%  {opacity:1;}    /* face A */
+    0%,24%  {opacity:1;}
     25%,49% {opacity:0;}
-    50%,74% {opacity:1;}    /* face A again */
+    50%,74% {opacity:1;}
     75%,100%{opacity:0;}
   }
 
@@ -115,8 +114,34 @@
     text-transform:uppercase;
   }
 
+  /* ---- anchor nav ---- */
+  nav.tabs{
+    display:flex;justify-content:center;gap:14px;flex-wrap:wrap;
+    margin:26px 0 4px;
+  }
+  nav.tabs a{
+    font-family:'Press Start 2P',monospace;
+    font-size:10px;
+    text-decoration:none;
+    color:var(--marble);
+    background:var(--abyss-2);
+    border:2px solid var(--line);
+    box-shadow:3px 3px 0 #000;
+    padding:12px 16px;
+    transition:transform .08s steps(2,end), box-shadow .08s steps(2,end), color .1s, border-color .1s;
+  }
+  nav.tabs a:hover,nav.tabs a:focus-visible{
+    color:var(--bronze);
+    border-color:var(--bronze-deep);
+    transform:translate(1px,1px);
+    box-shadow:2px 2px 0 #000;
+    outline:none;
+  }
+  nav.tabs a:focus-visible{outline:3px solid var(--wine);outline-offset:3px;}
+
   /* ---- Content blocks framed like marble tablets ---- */
   section{
+    scroll-margin-top:24px;
     background:linear-gradient(var(--abyss-2),var(--panel));
     border:3px solid var(--line);
     box-shadow:inset 0 0 0 1px rgba(0,0,0,.6), 6px 6px 0 rgba(0,0,0,.55);
@@ -133,11 +158,29 @@
   }
   section h2 .glyph{color:var(--bronze);}
 
+  h3{
+    font-family:'Press Start 2P',monospace;
+    font-size:11px;
+    color:var(--bronze);
+    margin:28px 0 10px;
+    line-height:1.5;
+  }
+
   p{margin:0 0 14px;font-size:23px;color:var(--marble);}
   p:last-child{margin-bottom:0;}
   .lede{font-size:26px;color:var(--marble);}
   .dim{color:var(--marble-dim);}
   em{color:var(--bronze);font-style:normal;}
+  a.inline{color:var(--bronze);}
+  .updated{
+    font-family:'Press Start 2P',monospace;
+    font-size:9px;color:var(--marble-dim);letter-spacing:1px;
+    margin:-8px 0 24px;
+  }
+
+  ul{margin:0 0 14px;padding-left:26px;}
+  li{margin:0 0 8px;font-size:23px;}
+  li::marker{color:var(--bronze);}
 
   /* ---- Contact ---- */
   .mail-btn{
@@ -163,6 +206,13 @@
   .mail-btn:focus-visible{outline:3px solid var(--wine);outline-offset:3px;}
   .contact-note{margin-top:18px;}
 
+  .top-link{
+    display:inline-block;margin-top:22px;
+    font-family:'Press Start 2P',monospace;font-size:9px;
+    color:var(--marble-dim);text-decoration:none;letter-spacing:1px;
+  }
+  .top-link:hover,.top-link:focus-visible{color:var(--bronze);outline:none;}
+
   footer{text-align:center;margin-top:54px;}
   footer p{
     font-family:'Press Start 2P',monospace;
@@ -175,7 +225,9 @@
     body{font-size:20px;}
     section{padding:24px 20px 26px;}
     section h2{font-size:12px;}
+    h3{font-size:10px;}
     .mail-btn{font-size:11px;}
+    li{font-size:21px;}
   }
 
   @media (prefers-reduced-motion:reduce){
@@ -184,21 +236,18 @@
   }
 </style>
 </head>
-<body>
+<body id="top">
 <div class="meander" aria-hidden="true"></div>
 
 <div class="wrap">
 
   <header class="hero">
     <div class="die-stage">
-      <!-- Signature: a pixel die whose face shows the lightning bolt of Zeus -->
       <svg class="die" width="120" height="120" viewBox="0 0 24 24" role="img" aria-label="Die showing the lightning bolt of Zeus">
-        <!-- body -->
         <rect x="3" y="3" width="18" height="18" fill="#efe7d3"/>
         <rect x="3" y="3" width="18" height="3" fill="#fff6e2"/>
         <rect x="3" y="18" width="18" height="3" fill="#cbbf9f"/>
         <rect x="3" y="3" width="18" height="18" fill="none" stroke="#000" stroke-width="1"/>
-        <!-- pip: pixel lightning bolt of Zeus -->
         <g class="pip" fill="#c33a54">
           <rect x="12" y="6"  width="3" height="3"/>
           <rect x="9"  y="9"  width="3" height="3"/>
@@ -211,22 +260,54 @@
       </svg>
     </div>
     <h1>DICERA</h1>
-    <p class="subtitle">Support &amp; Contact</p>
+    <p class="subtitle">Support &amp; Privacy</p>
+    <nav class="tabs" aria-label="Page sections">
+      <a href="#about">About</a>
+      <a href="#support">Support</a>
+      <a href="#privacy">Privacy</a>
+    </nav>
   </header>
 
   <div class="meander" aria-hidden="true"></div>
 
-  <section>
+  <section id="about">
     <h2><span class="glyph">&#9670;</span> What is Dicera?</h2>
     <p class="lede">A <em>roguelike dice game</em> in pixel art, where every run is a descent through the world of Greek mythology.</p>
     <p class="dim">Roll the dice like in Yahtzee, combine your faces into powerful combos, and earn the favor of the gods. Every run is different — until the Fates cut your thread. How deep can you make it?</p>
   </section>
 
-  <section>
+  <section id="support">
     <h2><span class="glyph">&#9670;</span> Help &amp; Contact</h2>
     <p>Got a question, found a bug, or have a suggestion? Reach out directly — we read every message.</p>
     <p class="contact-note dim">It helps to include your device, the app version, and a short description so we can sort things out faster.</p>
     <a class="mail-btn" href="mailto:ungricht@me.com?subject=Dicera%20Support">ungricht@me.com</a>
+  </section>
+
+  <section id="privacy">
+    <h2><span class="glyph">&#9670;</span> Privacy Policy</h2>
+    <p class="updated">Last updated: June 16, 2026</p>
+
+    <p>This policy explains how Dicera ("the app", "we") handles your information. By playing Dicera, you agree to the practices described here.</p>
+
+    <h3>Information we collect</h3>
+    <p>Dicera is built to be played without an account. The app does not ask for your name, email address, or other personal details in order to run, and it does not collect data that personally identifies you. Your game progress and settings are stored locally on your device.</p>
+
+    <h3>Third-party services</h3>
+    <p>To keep the game stable, Dicera may rely on standard platform services (such as the Apple App Store or Google Play) and tools for crash reporting and anonymous, aggregated usage statistics. Where used, these services may process technical information such as your device model, operating system version, and in-app events. This information is not used to identify you personally and is handled under each provider's own privacy policy.</p>
+
+    <h3>Children</h3>
+    <p>Dicera is suitable for a general audience and is not directed at children under 13. We do not knowingly collect personal information from children.</p>
+
+    <h3>Your choices</h3>
+    <p>You can delete the app at any time to remove locally stored game data from your device. You can also manage tracking and advertising preferences through your device's system settings.</p>
+
+    <h3>Changes to this policy</h3>
+    <p>We may update this policy as the app evolves. Any changes will be posted on this page with a new "last updated" date.</p>
+
+    <h3>Contact</h3>
+    <p>Questions about privacy? Email us at <a class="inline" href="mailto:ungricht@me.com?subject=Dicera%20Privacy">ungricht@me.com</a>.</p>
+
+    <a class="top-link" href="#top">&#9650; Back to top</a>
   </section>
 
   <div class="meander" aria-hidden="true"></div>
